@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
 import ViewCourses from '../views/ViewCourses.vue'
+import CreateCourse from '../views/CreateCourse.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,10 @@ const routes = [
   {
     path: '/courses',
     component: ViewCourses,
+  },
+  {
+    path: '/new',
+    component: CreateCourse,
   }
 ]
 

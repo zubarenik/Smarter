@@ -23,7 +23,6 @@
           :schoolABI="schoolABI" 
           :courseABI="courseABI" 
           :schoolAddress="schoolAddress"
-          :user="user"
         />
       </v-container>
     </v-content>
@@ -34,7 +33,6 @@
 export default {
   data(){
     return {
-      user: '0xe61a3bf92041491e61FbbF191e297E96B3fAf7cB',
       schoolABI: [
         {
           "constant": false,
@@ -47,6 +45,11 @@ export default {
             {
               "internalType": "string",
               "name": "en_name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "en_description",
               "type": "string"
             }
           ],
@@ -67,6 +70,11 @@ export default {
           ],
           "name": "getCourseInfo",
           "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
             {
               "internalType": "string",
               "name": "",
@@ -101,10 +109,70 @@ export default {
           "payable": false,
           "stateMutability": "view",
           "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "listOfCourses",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
         }
       ],
-      schoolAddress: '0x7e20c6aEfFa37139daf03CdE003f94d7b8C57A9c',
+      schoolAddress: '0x3DF4497C2bB63F135c18745854a9d07B67491947',
       courseABI: [
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getDescription",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "buyCourse",
+          "outputs": [],
+          "payable": true,
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "constant": true,
+          "inputs": [],
+          "name": "getCost",
+          "outputs": [
+            {
+              "internalType": "uint24",
+              "name": "",
+              "type": "uint24"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function"
+        },
         {
           "constant": false,
           "inputs": [
@@ -123,38 +191,6 @@ export default {
           "outputs": [],
           "payable": false,
           "stateMutability": "nonpayable",
-          "type": "function"
-        },
-        {
-          "inputs": [
-            {
-              "internalType": "uint24",
-              "name": "en_cost",
-              "type": "uint24"
-            },
-            {
-              "internalType": "string",
-              "name": "en_title",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "constructor"
-        },
-        {
-          "constant": true,
-          "inputs": [],
-          "name": "getCost",
-          "outputs": [
-            {
-              "internalType": "uint24",
-              "name": "",
-              "type": "uint24"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
           "type": "function"
         },
         {
@@ -212,6 +248,33 @@ export default {
           "payable": false,
           "stateMutability": "view",
           "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint24",
+              "name": "en_cost",
+              "type": "uint24"
+            },
+            {
+              "internalType": "string",
+              "name": "en_title",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "en_description",
+              "type": "string"
+            },
+            {
+              "internalType": "address payable",
+              "name": "en_owner",
+              "type": "address"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "constructor"
         }
       ],
     }
